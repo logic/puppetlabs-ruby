@@ -113,7 +113,7 @@ define ruby::bundle
             '\s*--no-prune\s*',
             '\s*--without [[a-z0-9]+ ]+\s*',
           ]]) |$expected, $actual| {
-          fail ('Only bundler options supported for the install command are: clean, deployment, gemfile, path, without, and no-prune')
+          fail ("Only bundler options supported for the install command are: clean, deployment, gemfile, path, without, and no-prune: Expected: $expected --- Actual: $actual")
         }
         $real_command = "bundle ${command}${multicore_str} ${option}"
       } else {
